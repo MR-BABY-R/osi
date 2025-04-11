@@ -1,0 +1,200 @@
+1->
+ DROP DATABASE IF EXISTS ai_ml_b3;
+DROP USER IF EXISTS 'aiml_b3'@'localhost';
+CREATE DATABASE ai_ml_b3;
+USE ai_ml_b3;
+CREATE TABLE employee (empno INT PRIMARY KEY,ename VARCHAR(50) NOT NULL,job VARCHAR(20),manager_no INT,sal DECIMAL(10,2),commission DECIMAL(8,2));
+CREATE USER 'aiml_b3'@'localhost' IDENTIFIED BY 'aiml';
+GRANT ALL PRIVILEGES ON ai_ml_b3.* TO 'aiml_b3'@'localhost';
+SET autocommit=0;
+INSERT INTO employee(empno, ename, job, manager_no, sal, commission)
+VALUES (101, 'john doe', 'manager', NULL, 50000, 2000),(102, 'jane smith', 'developer', 101, 45000, 1500),(103, 'bob johnson', 'analyst', 101, 40000, 1000);
+SELECT * FROM employee;
+ROLLBACK;
+SELECT * FROM employee;
+INSERT INTO employee(empno, ename, job, manager_no, sal, commission)VALUES(105, 'Lax', 'manager', NULL, 50000, 2000);
+SELECT * FROM employee;
+DESC employee;
+
+ 
+ 2->
+ 
+ create table emp(empno int primary key,ename varchar(25),job varchar(20),mgr int,sal decimal(10,2));
+ alter table emp add commission decimal(8,2);
+ insert into emp(empno, ename, job, mgr, sal, commission) values(101, 'john doe', 'manager', null, 50000, 2000),(102, 'jane smith', 'developer', 101, 45000, 1500),(103, 'bob johnson', 'analyst', 101, 40000, 1000),(104, 'john smith', 'cashier', 101, 40000, 1800),(105, 'bob doe', 'developer', 101, 60000, 2000);
+ select * from emp;
+ alter table emp modify job varchar(100);
+ select * from emp;
+ alter table emp rename to emp1;
+ select * from emp1;
+ delete from emp1 where empno=105;
+ select * from emp1;
+ 
+ 
+ 
+ 3->
+ 
+ drop table employee;
+ create table employee(e_id int primary key,e_name varchar(50),age int,sal decimal(10,2));
+ insert into employee values(1,'john doe',30,50000.0),(2,'jane smith',25,45000.0),(3,'michael johnson',35,60000.0),(4,'emily brown',28,48000.0),(5,'david lee',32,55000.0);
+ select * from employee;
+ select count(e_name) as no_of_employees from employee;
+ select max(age) as maxage from employee;
+ select min(age) as minage from employee;
+ select sal as employee_salary from employee order by sal asc;
+ select sal,count(*) as employee_count from employee group by sal;
+ 
+ 
+ 4->
+ 
+ create table customers(id int primary key,name varchar(25),age int,address varchar(50),salary decimal(10,2));
+ 
+ insert into customers(id,name,age,address,salary) values(1,'john doe',30,'123, main st, anytown, usa',50000.0),(2,'jane smith',25,'456, elm st, othertown, usa',60000.0),(3,'bob john son',40,'789, oak st, anothertown, usa',75000.0);
+  select * from customers;
+ delimiter //
+ 
+ create trigger after_insert_salary_difference
+ after insert on customers
+ for each row
+ begin
+ set @my_sal_diff=concat('salary inserted is ',new.salary);
+ end;
+ //
+ 
+ create trigger after_update_salary_difference
+ after update on customers
+ for each row
+ begin
+ declare old_salary decimal(10,2);
+ declare new_salary decimal(10,2);
+ set old_salary=old.salary;
+ set new_salary=new.salary;
+ set @my_sal_diff=concat('salary difference after update is ',new_salary-old_salary);
+ end;
+ //
+ 
+ create trigger after_delete_salary_difference
+ after delete on customers
+ for each row
+ begin
+ set @my_sal_diff=concat('salary deleted is ',old.salary);
+ end;
+ //
+ 
+ delimiter ;
+ 
+ insert into customers(id,name,age,address,salary) values(4,'shankara',35,'123 main st',50000.00);
+ select @my_sal_diff as sal_diff;
+ 
+ update customers set salary=55000.00 where id=1;
+ select @my_sal_diff as sal_diff;
+ 
+ delete from customers where id=1;
+ select @my_sal_diff as sal_diff;
+ 
+ 
+ 5->
+ 
+ create database company05;
+ use company05;
+ create table employee(e_id int,e_name varchar(255),age int,salary decimal(10,2));
+ insert into employee(e_id,e_name,age,salary) values(1,'samarth',30,50000.00),(2,'ramesh kumar',25,45000.00),(3,'seema banu',35,62000.00),(4,'dennis anil',28,52000.00),(5,'rehman khan',32,58000.00);
+ delimiter //
+ create procedure fetch_employee_data()
+ begin
+ ->declare emp_id int;
+ ->declare emp_name varchar(255);
+ ->declare emp_age int;
+ ->declare emp_salary decimal(10,2);
+ ->declare finished int default 0;
+ ->declare emp_cursor cursor for
+ ->select e_id,e_name,age,salary
+ ->from employee;
+ ->declare continue handler for not found
+ ->set finished = 1;
+ ->open emp_cursor;
+ ->set finished = 0;
+ ->cursor_loop: loop
+ ->fetch emp_cursor into emp_id, emp_name, emp_age, emp_salary;
+ ->if finished = 1 then
+ ->leave cursor_loop;
+ ->end if;
+ ->select concat('employee id: ', emp_id, ', name: ', emp_name, ', age: ', emp_age, ', salary: ', emp_salary) as employee_info;
+ ->end loop;
+ ->close emp_cursor;
+ end;
+ //
+ delimiter ;
+ call fetch_employee_data();
+ 
+ 
+ 6->
+ create database exp6_b23; 
+ use exp6_b23; 
+ create table n_rollcall(student_id int primary key,student_name varchar(255),birth_date date);
+ create table o_rollcall(student_id int primary key,student_name varchar(255),birth_date date);
+ insert into o_rollcall(student_id,student_name,birth_date) values(1,'shivanna','1995-08-15'),(3,'cheluva','1990-12-10');
+ insert into n_rollcall(student_id,student_name,birth_date) values(1,'shivanna','1995-08-15'),(2,'bhadramma','1998-03-22'),(3,'cheluva','1990-12-10'),(4,'devendra','2000-05-18'),(5,'eshwar','1997-09-03');
+ delimiter //
+ create procedure merge_rollcall_data()
+ begin
+ declare done int default false;
+ declare n_id int;
+ declare n_name varchar(255);
+ declare n_birth_date date;
+ declare n_cursor cursor for select student_id,student_name,birth_date from n_rollcall;
+ declare continue handler for not found set done = true;
+ open n_cursor;
+ cursor_loop: loop
+ fetch n_cursor into n_id,n_name,n_birth_date;
+ if done then
+ leave cursor_loop;
+ end if;
+ if not exists (select 1 from o_rollcall where student_id = n_id) then
+ insert into o_rollcall(student_id,student_name,birth_date) values(n_id,n_name,n_birth_date);
+ end if;
+ end loop;
+ close n_cursor;
+ end;
+ //
+ delimiter ;
+ call merge_rollcall_data();
+ select * from o_rollcall;
+
+
+
+
+
+drop database if exists exp6_b23;
+create database exp6_b23;
+use exp6_b23;
+create table n_rollcall(student_id int primary key,student_name varchar(255),birth_date date);
+create table o_rollcall(student_id int primary key,student_name varchar(255),birth_date date);
+insert into o_rollcall(student_id,student_name,birth_date) values(1,'shivanna','1995-08-15'),(3,'cheluva','1990-12-10');
+insert into n_rollcall(student_id,student_name,birth_date) values(1,'shivanna','1995-08-15'),(2,'bhadramma','1998-03-22'),(3,'cheluva','1990-12-10'),(4,'devendra','2000-05-18'),(5,'eshwar','1997-09-03');
+drop procedure if exists merge_rollcall_data;
+delimiter //
+create procedure merge_rollcall_data()
+begin
+declare done int default false;
+declare n_id int;
+declare n_name varchar(255);
+declare n_birth_date date;
+declare n_cursor cursor for select student_id,student_name,birth_date from n_rollcall;
+declare continue handler for not found set done = true;
+open n_cursor;
+cursor_loop: loop
+fetch n_cursor into n_id,n_name,n_birth_date;
+if done then
+leave cursor_loop;
+end if;
+if not exists (select 1 from o_rollcall where student_id = n_id) then
+insert into o_rollcall(student_id,student_name,birth_date) values(n_id,n_name,n_birth_date);
+end if;
+end loop;
+close n_cursor;
+end;
+//
+delimiter ;
+call merge_rollcall_data();
+select * from o_rollcall;
