@@ -1,0 +1,196 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+\usepackage{lipsum} 
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Title of Document} 
+\rfoot{Institute Name\quad\thepage} 
+\begin{document}
+\title{Title of Document}
+\author{}
+\date{}
+\maketitle
+\section{Kawasaki H2R}
+\lipsum{1}
+\section{Naruto}
+\lipsum{2}
+\end{document}
+
+
+
+
+
+
+
+\documentclass{article}
+\usepackage{lipsum}
+\title{Sample Abstract/Summary}
+\author{MR-_B_A_B_Y}
+\date{23-08-2025}
+\begin{document}
+\maketitle
+\section*{Abstract}
+\lipsum[1]
+\vspace{0.5cm}
+\lipsum[2]
+\vspace{0.5cm}
+\lipsum[3]
+\end{document}
+
+
+
+
+
+
+
+\documentclass[12pt, a4paper]{report}
+
+\usepackage{graphicx}
+\usepackage{geometry}
+
+\geometry{a4paper,total={170mm, 257mm}, left=20mm, right=20mm, top=30mm, bottom=30mm}
+\thispagestyle{empty}
+\begin{document}
+\begin{titlepage}
+    \begin{center}
+
+        \textbf{\Large VISVESVARAYA TECHNOLOGICAL UNIVERSITY} \\
+        {\normalsize Jnana Sangama, Belgaum-590018} \\
+        \vspace{0.3in}
+
+        \includegraphics[scale=0.2]{VTU-Logo-250x250-1.png} \\
+        \vspace{0.3in}
+
+        \textbf{\Large A PROJECT REPORT} \\
+        \textbf{ON} \\
+        \vspace{0.2in}
+        \textbf{\large "Create Report Format Using LaTeX"} \\
+        \vspace{0.15in}
+
+        {\small Submitted in partial fulfillment of the requirements for the Fifth Semester degree of \\
+        Bachelor of Engineering in Computer Science Engineering of \\
+        Visvesvaraya Technological University, Belagavi} \\
+        \vspace{0.2in}
+
+        \textbf{BACHELOR OF ENGINEERING} \\
+        \textbf{IN} \\
+        \textbf{CSE (CYBER SECURITY)} \\
+        \vspace{0.3in}
+
+        \textbf{Submitted by} \\
+        \vspace{0.15in}
+
+        \begin{tabular}{ll}
+            \textbf{1IC21CY017} & Braham Kumar Sah \\
+            \textbf{1IC21CY015} & Shoaib Akhtar \\
+            \textbf{1IC21CY005} & Aman Kumar \\
+            \textbf{1IC21CY015} & Bikash Kumar Singh \\
+        \end{tabular}
+
+        \vspace{0.3in}
+
+        \textbf{Under the Guidance of} \\
+        Dr. Kaipa Sandhya \\
+        Assistant Professor, Department of Data Science \\
+
+        \vspace{0.3in}
+
+        \includegraphics[scale=0.4]{ICEAS-Logo-high-resolution-300x200-1.png} \\
+        \vspace{0.1in}
+
+        {\small DEPARTMENT OF CSE (CYBER SECURITY)} \\
+        \vspace{0.1in}
+        \textbf{IMPACT COLLEGE OF ENGINEERING AND APPLIED SCIENCES} \\
+        \small {(Approved by AICTE & Affiliated to VTU), Bengaluru - 560092} \\
+        \vspace{0.2in}
+        {\small 2023–2024}
+
+    \end{center}
+\end{titlepage}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+\documentclass{article}
+\usepackage{array, booktabs, multicol, multirow}
+\renewcommand{\arraystretch}{1.2}
+\usepackage[a4paper, margin=1in]{geometry}
+
+\begin{document}
+
+\begin{center}
+\textbf{\LARGE Student Details and Marks}
+\end{center}
+
+\vspace{0.5cm}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\multirow{2}{*}{\textbf{S.No}} & \multirow{2}{*}{\textbf{USN}} & \multirow{2}{*}{\textbf{Student Name}} & \multicolumn{3}{c|}{\textbf{Marks}} \\
+\cline{4-6}
+& & & \textbf{Subject 1} & \textbf{Subject 2} & \textbf{Subject 3} \\
+\hline
+1 & 4XX22XX01 & Name 1 & 89 & 60 & 90 \\
+\hline
+2 & 4XX22XX02 & Name 2 & 78 & 45 & 98 \\
+\hline
+3 & 4XX22XX03 & Name 3 & 67 & 55 & 59 \\
+\hline
+\end{tabular}
+\end{table}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[a4paper, margin=1in]{geometry}
+
+\begin{document}
+
+\begin{figure}[h!]
+    \centering
+
+    \begin{subfigure}{0.46\linewidth}
+        \includegraphics[width=\linewidth]{image1.jpg}
+        \caption{Caption for image 1}
+        \label{fig:subfig1}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.46\linewidth}
+        \includegraphics[width=\linewidth]{image2.png}
+        \caption{Caption for image 2}
+        \label{fig:subfig2}
+    \end{subfigure}
+
+    \caption{Combined caption for both images}
+    \label{fig:subfigures}
+\end{figure}
+
+\end{document}
+
+
+
+
+
+
+
