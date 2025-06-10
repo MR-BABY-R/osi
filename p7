@@ -1,0 +1,20 @@
+\documentclass{article} 
+\usepackage{amsmath}  
+\begin{document} 
+    \section*{Equations Set 1}  
+    \begin{align*}  
+    x &= -b \pm \sqrt[4]{b^2 - 4ac} \\  
+    x &= \frac{-b \pm \sqrt{22 - 4(1)(-8)}}{2(1)} \\  
+    &= \frac{-b \pm \sqrt{22 + 32}}{2} \\  
+    &= \frac{-b \pm \sqrt{54}}{2} \\  
+    &= \frac{-b \pm 3\sqrt{6}}{2} 
+    \end{align*} 
+    \section*{Equations Set 2}  
+    \begin{align*}  
+    \varphi_{\sigma}^{\lambda} \cdot A_{t} &= \sum_{\pi \in C_{t}} \text{sgn}(\pi)  
+    \varphi_{\sigma}^{\lambda} \varphi_{\pi}^{\lambda} \\  
+    &= \sum_{\tau \in C_{\sigma}^{t}} \text{sgn}(\sigma^{-1} \tau \sigma) 
+    \varphi_{\sigma}^{\lambda} \varphi_{\sigma^{-1} \tau \sigma}^{\lambda} \\  
+    &= A_{\sigma}^{t} \varphi_{\sigma}^{\lambda} 
+    \end{align*} 
+\end{document}
