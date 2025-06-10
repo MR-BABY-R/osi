@@ -1,0 +1,20 @@
+\documentclass{article} 
+\usepackage{algorithm} 
+\usepackage{algorithmic} 
+\begin{document} 
+\begin{algorithm} 
+\caption{sample algorithm (algorithmic)} 
+\begin{algorithmic}[1] 
+\REQUIRE~a list of numbers $A$ 
+\ENSURE~sorted list $A$ 
+\FOR{$i = 1$ to $length(A)$} 
+    \FOR{$j = 1$ to $length(A) - i$} 
+      \IF{$A[j] > A[j+1]$} 
+        \STATE swap $A[j]$ and $A[j+1]$ 
+      \ENDIF 
+    \ENDFOR 
+\ENDFOR 
+\RETURN $A$ 
+\end{algorithmic} 
+\end{algorithm} 
+\end{document}
