@@ -1,0 +1,76 @@
+\documentclass[12pt]{article}
+\usepackage[backend=biber,style=apa]{biblatex}
+\addbibresource{references.bib}
+\begin{filecontents*}{references.bib}
+@book{knuth1984texbook,
+  title={The TeXbook},
+  author={Knuth, Donald E},
+  year={1984},
+  publisher={Addison-Wesley}
+}
+@article{mikolov2013word2vec,
+  title={Efficient Estimation of Word Representations in Vector Space},
+  author={Mikolov, Tomas and others},
+  journal={arXiv preprint arXiv:1301.3781},
+  year={2013}
+}
+@book{bishop2006pattern,
+  title={Pattern Recognition and Machine Learning},
+  author={Bishop, Christopher M},
+  year={2006},
+  publisher={Springer}
+}
+@article{goodfellow2016deep,
+  title={Deep Learning},
+  author={Goodfellow, Ian and Bengio, Yoshua and Courville, Aaron},
+  journal={MIT Press},
+  year={2016}
+}
+@article{vaswani2017attention,
+  title={Attention is All You Need},
+  author={Vaswani, Ashish and others},
+  journal={Advances in neural information processing systems},
+  year={2017}
+}
+@article{brown2020gpt3,
+  title={Language Models are Few-Shot Learners},
+  author={Brown, Tom B and others},
+  journal={NeurIPS},
+  year={2020}
+}
+@article{lecun2015deep,
+  title={Deep Learning},
+  author={LeCun, Yann and others},
+  journal={Nature},
+  year={2015}
+}
+@article{he2016resnet,
+  title={Deep Residual Learning for Image Recognition},
+  author={He, Kaiming and others},
+  journal={CVPR},
+  year={2016}
+}
+@article{devlin2018bert,
+  title={BERT: Pre-training of Deep Bidirectional Transformers},
+  author={Devlin, Jacob and others},
+  journal={arXiv preprint arXiv:1810.04805},
+  year={2018}
+}
+@article{radford2019gpt2,
+  title={Language Models are Unsupervised Multitask Learners},
+  author={Radford, Alec and others},
+  journal={OpenAI Blog},
+  year={2019}
+}
+\end{filecontents*}
+\begin{document}
+\title{A Brief Overview of AI and NLP Research}
+\author{L S Rajesh}
+\date{\today}
+\maketitle
+\section*{Introduction}
+Artificial Intelligence (AI) has made tremendous progress in recent years due to the advancements in deep learning \cite{lecun2015deep, goodfellow2016deep}. Foundational works such as those by Bishop \cite{bishop2006pattern} and Knuth \cite{knuth1984texbook} laid the groundwork for computational approaches. The evolution of transformer-based architectures has significantly boosted the capabilities of Natural Language Processing (NLP) \cite{vaswani2017attention, devlin2018bert}. Innovations like BERT \cite{devlin2018bert} and GPT-3 \cite{brown2020gpt3} demonstrate how scaling models leads to better performance. 
+\section*{Recent Advances}
+Recent developments focus heavily on large language models and pre-training techniques. For example, GPT-2 and GPT-3 have shown how models can learn complex language patterns without task-specific tuning \cite{radford2019gpt2, brown2020gpt3}. Earlier representations such as word2vec \cite{mikolov2013word2vec} contributed to better semantic understanding. In computer vision, ResNet provided a similar breakthrough with its deep residual learning approach \cite{he2016resnet}. These innovations reflect a general trend of increasing model complexity and training data size to achieve state-of-the-art results.
+\printbibliography
+\end{document}
