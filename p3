@@ -1,0 +1,58 @@
+\documentclass[12pt, a4paper]{report} 
+\usepackage{graphicx} 
+\usepackage{geometry} 
+\geometry{a4paper, total={170mm, 257mm}, left=20mm, right=20mm, top=30mm, bottom=30mm} 
+\thispagestyle{empty} 
+
+\begin{document} 
+
+\begin{titlepage} 
+    \begin{center} 
+       
+        \textbf{{\large VISVESVARAYA TECHNOLOGICAL UNIVERSITY}}\\
+        {\normalsize Jnana Sangama, Belgaum-590018}\\
+        \vspace{0.3in}
+        \includegraphics[scale=0.2]{VTU-Logo-250x250-1.png}\\
+        \vspace{0.3in}
+    
+        \textbf{A PROJECT REPORT} \\
+        ON \\
+        \vspace{0.2in}
+        \textbf{{\large "Create Report Format Using LaTeX"}}\\
+        \vspace{0.1in}
+        {\small Submitted in partial fulfillment of the requirements for the Fifth
+        Semester degree of  
+        Bachelor of Engineering in Computer Science Engineering of Visvesvaraya Technological  
+        University, Belagavi}\\
+        \vspace{0.1in}
+        \textbf{BACHELOR OF ENGINEERING\\IN\\CSE(CYBER SECURITY}\\
+        \vspace{0.2in}
+
+        Submitted by\\
+        \vspace{0.08in}
+        \begin{tabular}{ll}
+        \textbf{1IC21CY016} & \textbf{L S Rajesh}\\
+        \textbf{1IC21CY020} & \textbf{Manoj J}\\
+        \textbf{1IC21CY021} & \textbf{Osman Aazim}\\
+        \end{tabular}
+
+        \vspace{0.2in}
+
+        \textbf{Under the Guidance of}\\
+        Dr. Kaipa Sandhya\\
+        Assistant Professor, Department of Data Science\\
+
+        \vspace{0.2in}
+
+        \includegraphics[scale=0.4]{image.png}\\
+        \vspace{0.01in}
+        {\small DEPARTMENT OF CSE(CYBER SECURITY)}\\
+        \vspace{0.1in}
+        \textbf{IMPACT COLLEGE OF ENGINEERING AND APPLIED SCIENCES}\\
+        \small{(Approved By AICTE & Affiliated to VTU),Bengaluru -560092}\\
+        \vspace{0.1in}
+        {\small 2023-2024}\\
+    \end{center} 
+\end{titlepage} 
+
+\end{document} 
